@@ -28,6 +28,7 @@ btnAddProduct.addEventListener(`click`, (e) => {
 tableCart.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`remove`)) {
         e.target.closest(`td`).parentElement.remove();
+        calculateTotal();
     }
 })
 
