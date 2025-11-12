@@ -40,7 +40,6 @@ tableCart.addEventListener(`change`, (e) => {
 
     if (e.target.classList.contains(`quantity`)) {
         if (!Number.isNaN(Number(e.target.value))) {
-            e.target.parentElement.previousElementSibling.lastChild.value *= e.target.value;
             calculateTotal();
         }
     }
@@ -50,7 +49,7 @@ let calculateTotal = () => {
     let priceList = document.getElementsByClassName(`price`);
     let sum = 0;
     for (let p of priceList) {
-        sum += Number(p.value);
+        sum += Number(p.value * p.parentElement.nextElementSibling.firstChild.value);
         totalPrice.textContent = ``;
         totalPrice.textContent = `Total Price: ${new Intl.NumberFormat('en-US', {
             style: 'currency',
