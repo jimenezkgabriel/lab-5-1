@@ -11,7 +11,52 @@
 </head>
 
 <body>
-
+    <div class="container vh-100 align-content-center">
+        <!--Input above the table-->
+        <div class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+                <div class="form-floating">
+                    <input id="productName" class="form-control" type="text" placeholder="Enter a product">
+                    <label for="productName">Product</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input placeholder="Enter a product price" id="productPrice" class="form-control" type="text">
+                    <label for="productPrice">Price</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="addProduct" class="btn btn-primary">Add product</button>
+            </div>
+        </div>
+        <!--The table-->
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Quantity</th>
+                        <th><!--Empty space for the delete button--></th>
+                    </thead>
+                    <tbody class="align-baseline" id="cart">
+                        <tr style="display: none;" id="template">
+                            <td id="templateProduct"></td>
+                            <td><input type="text" id="templatePrice" class="form-control price"></td>
+                            <td><input type="text" id="templateQuantity" class="form-control quantity"></td>
+                            <td><button id="templateRemove" class="btn btn-danger remove">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 id="totalPrice" class="text-end">Total Price: $</h1>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
