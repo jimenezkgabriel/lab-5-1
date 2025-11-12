@@ -18,6 +18,12 @@ btnAddProduct.addEventListener(`click`, (e) => {
     templatePrice.value = ``;
     templateQuantity.value = ``;
     clonedNode.style.display = ``;
+    clonedNode.getElementsByClassName(`quantity`)[0].addEventListener(`change`, (e) => {
+        if (!Number.isNaN(Number(e.target.value))) {
+            e.target.parentElement.previousElementSibling.lastChild.value *= e.target.value;
+            calculateTotal();
+        }
+    })
     tableCart.appendChild(clonedNode);
     console.log(clonedNode);
     inputProduct.value = ``;
@@ -33,14 +39,6 @@ tableCart.addEventListener(`click`, (e) => {
     if (e.target.classList.contains(`price`)) {
         e.target.addEventListener(`blur`, (e) => {
             if (!Number.isNaN(Number(e.target.value))) {
-                calculateTotal();
-            }
-        })
-    }
-    if (e.target.classList.contains(`quantity`)) {
-        e.target.addEventListener(`blur`, (e) => {
-            if (!Number.isNaN(Number(e.target.value))) {
-                e.target.parentElement.previousElementSibling.lastChild.value *= e.target.value;
                 calculateTotal();
             }
         })
